@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPatientActivity"
+    android:background="@color/bgColor">
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="ADD NEW PATIENT"
+            android:textSize="30sp"
+            android:gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="PATIENT CODE:  "
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/patientCode_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="CODE "
+            android:textSize="25sp" />
+
+</LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientName_text_input"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/patientName_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Patient's Name"
+                android:inputType="text"
+                android:textColorHighlight="@color/bgColor"
+                android:textColorLink="@color/bgColor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientAge_text_input"
+            style="@style/TextInputLayout"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:errorEnabled="true"
+            android:layout_marginEnd="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/patientAge_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="text"
+                android:textColorHighlight="@color/bgColor"
+                android:textColorLink="@color/bgColor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientBranch_text_input"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/patientBranch_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Branch"
+                android:inputType="text"
+                android:textColorHighlight="@color/bgColor"
+                android:textColorLink="@color/bgColor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientAddress_text_input"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/patientAddress_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="textPassword"
+                android:textColorHighlight="@color/bgColor"
+                android:textColorLink="@color/bgColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<androidx.appcompat.widget.AppCompatAutoCompleteTextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Branch"
+    android:id="@+id/branch_AutoTxt"
+    />
+
+    </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addPatient_button"
+            style="@style/Button"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:background="@color/bgColor"
+            android:text="add patient"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@color/bgColor"
+            app:cornerRadius="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</RelativeLayout>

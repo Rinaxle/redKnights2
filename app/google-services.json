@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "553755451885",
+    "firebase_url": "https://redknights-c5a3e.firebaseio.com",
+    "project_id": "redknights-c5a3e",
+    "storage_bucket": "redknights-c5a3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553755451885:android:a88edd0b906b731a",
+        "android_client_info": {
+          "package_name": "com.rinaxl.Knights"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553755451885-0glvq0ink6vlrd6lnuugthevo4kjiakp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rinaxl.Knights",
+            "certificate_hash": "c80de3c178ce54e58b14fc10d498bae9f069b421"
+          }
+        },
+        {
+          "client_id": "553755451885-hselve8p13383piqmr9o7qpm7d4op9sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV7owD9B3oP2GN1FhN2PRx9r3Uhj1oHcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553755451885-hselve8p13383piqmr9o7qpm7d4op9sj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
