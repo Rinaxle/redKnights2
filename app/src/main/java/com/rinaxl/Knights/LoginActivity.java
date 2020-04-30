@@ -1,6 +1,8 @@
 package com.rinaxl.Knights;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +20,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rinaxl.Knights.Model.User;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Intent sampleIntent = new Intent(LoginActivity.this,MenuActivity.class);
                     startActivity(sampleIntent);
-                    //signIn(edtUserName.getText().toString(), edtPassword.getText().toString());
+                    signIn(edtUserName.getText().toString(), edtPassword.getText().toString());
                 }
             }
         });
@@ -62,6 +70,18 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(signupIntent);
             }
         });
+
+        users.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void signIn(final String username,final String password){
@@ -71,16 +91,26 @@ public class LoginActivity extends AppCompatActivity {
                 if(dataSnapshot.child(username).exists()){
                     if(!username.isEmpty()){
                         User login = dataSnapshot.child(username).getValue(User.class);
-                        if(login.getStudentPassword().equals(password)){
+                        if(login.getStaffPassword().equals(password)){
                             Toast.makeText(LoginActivity.this,"Success Login",Toast.LENGTH_SHORT).show();
+                            SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor p = sharedPref.edit();
+                            p.putString("staffUsername",login.getStaffUsername());
+                            p.putString("staffName",login.getStaffName());
+                            p.putString("staffBranch",login.getStaffBranch());
+                            p.putString("staffPrivilege",login.getStaffPrivilege());
+                            p.apply();
+                            LoginLog();
+                            Intent loginIntent = new Intent(LoginActivity.this,MenuActivity.class);
+                            startActivity(loginIntent);
                         }
                         else{
                             Toast.makeText(LoginActivity.this,"Password Incorrect",Toast.LENGTH_SHORT).show();
                         }
                     }
-                    else{
-                        Toast.makeText(LoginActivity.this,"Username is not Registered",Toast.LENGTH_SHORT).show();
-                    }
+                }
+                else{
+                    Toast.makeText(LoginActivity.this,"Username is not Registered",Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -89,6 +119,27 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void LoginLog() {
+        String ipAddress = getLocalIpAddress();
+    }
+
+    public static String getLocalIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
 }

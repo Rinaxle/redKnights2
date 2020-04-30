@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">redKnights</string>
+
+    <string-array name="itemType_array">
+        <item>Gallons</item>
+        <item>Pieces</item>
+        <item>Pack</item>
+        <item>Kilo</item>
+        </string-array>
+
 </resources>

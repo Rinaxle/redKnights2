@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewTransactionActivity"></activity>
+        <activity android:name=".NewInventoryActivity"></activity>
+        <activity android:name=".ViewPaymentsActivity" />
+        <activity android:name=".TransactionViewActivity" />
+        <activity android:name=".TransactionQueueActivity" />
+        <activity android:name=".NewPaymentActivity" />
+        <activity android:name=".PatientQueueActivity" />
+        <activity android:name=".BranchPatientActivity" />
+        <activity android:name=".NewTransactionActivity" />
         <activity android:name=".TransactionActivity" />
         <activity android:name=".ViewPatientActivity" />
         <activity android:name=".NewPatientActivity" />

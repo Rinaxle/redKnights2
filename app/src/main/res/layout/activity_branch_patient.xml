@@ -4,21 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewPatientActivity"
+    tools:context=".BranchPatientActivity"
     android:background="@color/pink">
 
+
     <TextView
-        android:id="@+id/allPatient"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:gravity="center"
-        android:text="ALL PATIENTS VIEW"
+        android:text="BRANCH PATIENTS"
         android:textSize="30sp"
         android:textColor="#ffffff"
         android:layout_marginTop="20dp"/>
 
+    <TextView
+        android:id="@+id/user_branch_txt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="BRANCH"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addPntAll_button"
+        android:id="@+id/addPnt_button"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
@@ -26,15 +36,14 @@
         app:cornerRadius="20dp"
         android:backgroundTint="#ffffff"
         android:text="Add Patient"
-        android:layout_below="@+id/allPatient"/>
+        android:layout_below="@+id/user_branch_txt"/>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="60dp"
         android:layout_height="55dp"
-        android:layout_below="@+id/allPatient"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="40dp"
-        android:layout_toRightOf="@+id/addPntAll_button"
+        android:layout_below="@+id/user_branch_txt"
+        android:layout_marginStart="50dp"
+        android:layout_toRightOf="@+id/addPnt_button"
         android:backgroundTint="@color/pink"
         android:src="@drawable/home_symbol_onred"
         android:scaleType="fitXY"/>
@@ -46,10 +55,9 @@
         android:padding="10dp"
         app:cardCornerRadius="20dp">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <ProgressBar
             android:id="@+id/progress_circular"
@@ -57,13 +65,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/patientRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp">
-
-        </androidx.recyclerview.widget.RecyclerView>
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/branchPatientRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.rinaxl.Knights;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ public class NewPatientActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference patients;
+    private DatabaseReference branchPatients;
     private DatabaseReference logs;
 
     private TextView txtPatientCode;
@@ -43,12 +45,12 @@ public class NewPatientActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         patients = database.getReference("Patients");
+        branchPatients = database.getReference("BranchPatients");
         logs = database.getReference("Logs");
 
         btnAddPatient = findViewById(R.id.addPatient_button);
         edtPatientName = findViewById(R.id.patientName_edit_text);
         edtPatientAge = findViewById(R.id.patientAge_edit_text);
-        edtPatientBranch = findViewById(R.id.patientBranch_edit_text);
         edtPatientAddress = findViewById(R.id.patientAddress_edit_text);
         txtPatientCode = findViewById(R.id.patientCode_text);
         autoTxtPatientBranch = findViewById(R.id.branch_AutoTxt);
@@ -70,10 +72,9 @@ public class NewPatientActivity extends AppCompatActivity {
         btnAddPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUp(txtPatientCode.getText().toString(),edtPatientName.getText().toString(),edtPatientAge.getText().toString(),edtPatientBranch.getText().toString());
+                signUp(txtPatientCode.getText().toString(),edtPatientName.getText().toString(),edtPatientAge.getText().toString(),autoTxtPatientBranch.getText().toString());
             }
         });
-
     }
 
     private void setPatientCount(){
@@ -102,7 +103,7 @@ public class NewPatientActivity extends AppCompatActivity {
 
     private void signUp (final String patientCode,final String patientName,final String patientAge, final String patientBranch) {
         if (!patientName.isEmpty() && !patientAge.isEmpty() && !patientBranch.isEmpty()) {
-            final Patient patient = new Patient(patientCode,patientName, patientAge, patientBranch,"0");
+            final Patient patient = new Patient(patientCode,patientName, patientAge, patientBranch,"0","0");
 
             patients.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -116,10 +117,6 @@ public class NewPatientActivity extends AppCompatActivity {
                         Toast.makeText(NewPatientActivity.this,"Patient Successfuly Registered",Toast.LENGTH_SHORT).show();
          //               final Logs patientCount = new Logs(patientCode);
            //             patientCount.setPatientCount(txtPatientCode.getText().toString());
-                        edtPatientName.setText("");
-                       edtPatientAge.setText("");
-                       edtPatientAddress.setText("");
-                       edtPatientBranch.setText("");
                     }
                 }
 
@@ -128,7 +125,32 @@ public class NewPatientActivity extends AppCompatActivity {
 
                 }
             });
+            Intent intent = new Intent(NewPatientActivity.this, MenuActivity.class);
+            startActivity(intent);
+
+/*            branchPatients.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.child(patient.getPatientCode()).exists()){
+                        Toast.makeText(NewPatientActivity.this,"Patient Already has this Record!",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        branchPatients.child(patient.getPatientBranch()).child(patient.getPatientCode()).setValue(patient);
+                        setNewPatientCount(patient.getPatientCode());
+                        Toast.makeText(NewPatientActivity.this,"Patient Successfuly Registered",Toast.LENGTH_SHORT).show();
+                        //               final Logs patientCount = new Logs(patientCode);
+                        //             patientCount.setPatientCount(txtPatientCode.getText().toString());
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });*/
         }
+
         else{
             edtPatientName.setError("This field is required!");
             edtPatientAge.setError("This field is required!");

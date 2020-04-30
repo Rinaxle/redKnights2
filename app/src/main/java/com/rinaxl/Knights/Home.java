@@ -54,6 +54,9 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Intent intent = getIntent();
+        final String transactionKey = intent.getStringExtra("Transaction Key");
+
         uploadProgress = findViewById(R.id.uploadProgress);
         chooseImage = findViewById(R.id.chooseImage);
         btnUploadImage = findViewById(R.id.btnUploadImage);
@@ -64,7 +67,7 @@ public class Home extends AppCompatActivity {
         imgPreview = findViewById(R.id.imgPreview);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Transactions");
 
         viewGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +82,7 @@ public class Home extends AppCompatActivity {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(Home.this, "Upload in progress", Toast.LENGTH_LONG).show();
                 } else {
-                    uploadImage();
+                    uploadImage(transactionKey);
                 }
             }
         });
@@ -118,7 +121,7 @@ public class Home extends AppCompatActivity {
     }
 
 
-    private void uploadImage() {
+    private void uploadImage(final String transactionKey) {
         if (imgUrl != null) {
             final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(imgUrl));
 
@@ -137,8 +140,9 @@ public class Home extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Upload upload = new Upload(imgDescription.getText().toString().trim(), uri.toString());
-                                    String uploadID = mDatabaseRef.push().getKey();
-                                    mDatabaseRef.child(uploadID).setValue(upload);
+                                   // String uploadID = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(transactionKey).child("imgUrl").setValue(uri.toString());
+                                    mDatabaseRef.child(transactionKey).child("imgName").setValue(imgDescription.getText().toString().trim());
                                     Toast.makeText(Home.this, "Upload successfully", Toast.LENGTH_LONG).show();
                                 //    imgPreview.setImageResource(R.drawable.imagepreview);
                                     imgDescription.setText("");

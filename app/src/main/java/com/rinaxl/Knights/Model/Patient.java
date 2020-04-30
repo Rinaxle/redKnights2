@@ -9,6 +9,8 @@ public class Patient {
     private String patientBranch;
     private String patientCode;
     private String transactionCount;
+    private String paymentCount;
+
     //   private String patientAddress;
     //   private Date patientBirthday;
     //  private String patientTransaction;
@@ -16,12 +18,21 @@ public class Patient {
 
     public Patient(){}
 
-    public Patient( String patientCode, String patientName, String patientAge, String patientBranch,String transactionCount) {
+    public Patient( String patientCode, String patientName, String patientAge, String patientBranch,String transactionCount, String paymentCount) {
         this.patientName = patientName;
         this.patientAge = patientAge;
         this.patientBranch = patientBranch;
         this.patientCode = patientCode;
         this.transactionCount = transactionCount;
+        this.paymentCount = paymentCount;
+    }
+
+    public String getPaymentCount() {
+        return paymentCount;
+    }
+
+    public void setPaymentCount(String paymentCount) {
+        this.paymentCount = paymentCount;
     }
 
     public String getTransactionCount(){return transactionCount;}

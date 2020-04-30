@@ -15,7 +15,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="390dp"
         android:orientation="vertical"
         android:padding="15dp"
         android:layout_marginTop="130dp">
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Create New User"
-            android:textSize="35sp" />
+            android:textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_text_input"
@@ -38,7 +38,7 @@
                 android:id="@+id/name_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="Name"
                 android:inputType="text"
                 android:textColorHighlight="@color/bgColor"
                 android:textColorLink="@color/bgColor" />
@@ -47,32 +47,14 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lastName_text_input"
+            android:id="@+id/userName_text_input"
             style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastName_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Last Name"
-                android:inputType="text"
-                android:textColorHighlight="@color/bgColor"
-                android:textColorLink="@color/bgColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username_text_input"
-            style="@style/TextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username_edit_text"
+                android:id="@+id/userName_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
@@ -100,7 +82,44 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:hint="Privilege"
+                android:id="@+id/userPrivilege_AutoTxt"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:layout_marginStart="30dp"
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:hint="Branch"
+                android:id="@+id/userBranch_AutoTxt"
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hint_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/bgColor"
+            android:drawableStart="@drawable/icon_camera"
+            android:gravity="start"
+            android:text="privilege info"
+            android:textAllCaps="true"
+            android:textAppearance="@style/HintText"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="16dp" />
 
     </LinearLayout>
 

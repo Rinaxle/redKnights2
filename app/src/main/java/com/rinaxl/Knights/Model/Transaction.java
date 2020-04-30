@@ -2,16 +2,41 @@ package com.rinaxl.Knights.Model;
 
 public class Transaction {
 
-    private String transactionDate,transactionType,transactionStart,transactionEnd, transactionCode;
+    private String transactionKey,transactionDate,transactionType,transactionStart,transactionEnd, transactionCode,patientCode,patientName, patientBranch;
+    private String imgName;
+    private String imgUrl;
+
 
     public Transaction(){}
 
-    public Transaction(String transactionDate, String transactionType, String transactionStart, String transactionEnd, String transactionCode) {
+    public Transaction(String transactionKey,String transactionDate, String transactionType, String transactionStart, String transactionEnd, String transactionCode, String patientCode, String patientName,String patientBranch, String imgName, String imgUrl) {
         this.transactionDate = transactionDate;
         this.transactionType = transactionType;
         this.transactionStart = transactionStart;
         this.transactionEnd = transactionEnd;
         this.transactionCode = transactionCode;
+        this.transactionKey = transactionKey;
+        this.patientCode = patientCode;
+        this.patientName = patientName;
+        this.patientBranch = patientBranch;
+        this.imgName = imgName;
+        this.imgUrl = imgUrl;
+    }
+
+    public String getTransactionKey() {
+        return transactionKey;
+    }
+
+    public void setTransactionKey(String transactionKey) {
+        this.transactionKey = transactionKey;
+    }
+
+    public String getPatientBranch() {
+        return patientBranch;
+    }
+
+    public void setPatientBranch(String patientBranch) {
+        this.patientBranch = patientBranch;
     }
 
     public String getTransactionDate() {
@@ -20,6 +45,14 @@ public class Transaction {
 
     public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 
     public String getTransactionStart() {
@@ -46,14 +79,35 @@ public class Transaction {
         this.transactionCode = transactionCode;
     }
 
-
-    public String getTransactionType() {
-        return transactionType;
+    public String getPatientCode() {
+        return patientCode;
     }
 
-    public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
+    public void setPatientCode(String patientCode) {
+        this.patientCode = patientCode;
     }
 
+    public String getPatientName() {
+        return patientName;
+    }
 
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }

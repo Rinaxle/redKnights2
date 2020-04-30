@@ -67,7 +67,7 @@ public class TransactionActivity extends AppCompatActivity {
         trxEnd.setFormat24Hour(null);
 
         txtPatientName.setText(patientName);
-        setTransactionCurrentCount(patientCode);
+  //      setTransactionCurrentCount(patientCode);
         final String TransactionCode = txtTransactionCode.getText().toString();
 
         btnPatientArrival.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +99,8 @@ public class TransactionActivity extends AppCompatActivity {
             }
 
             private void startTransaction(final String trxType,final String trxCode) {
-                if (!trxType.isEmpty()) {
-                    final Transaction transaction = new Transaction("",trxType,"","",trxCode);
+               /* if (!trxType.isEmpty()) {
+                    final Transaction transaction = new Transaction("",trxType,"","",trxCode,"","");
                     transactions.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -128,7 +128,7 @@ public class TransactionActivity extends AppCompatActivity {
                 }
                 else{
                     edtTransactionType.setError("This field is required!");
-                }
+                }*/
             }
         });
 
@@ -184,4 +184,4 @@ public class TransactionActivity extends AppCompatActivity {
     });
     }
 
-}
+            }

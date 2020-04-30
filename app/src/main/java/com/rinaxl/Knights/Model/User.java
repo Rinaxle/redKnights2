@@ -1,31 +1,59 @@
 package com.rinaxl.Knights.Model;
 
 public class User {
-    private String studentUsername;
-    private String studentPassword;
 
-    public User(){
+    private String staffUsername,staffName;
+    private String staffPassword;
+    private String staffPrivilege;
+    private String staffBranch;
 
+    public User(){}
+
+    public User(String staffUsername, String staffName, String staffPassword, String staffPrivilege, String staffBranch) {
+        this.staffUsername = staffUsername;
+        this.staffName = staffName;
+        this.staffPassword = staffPassword;
+        this.staffPrivilege = staffPrivilege;
+        this.staffBranch = staffBranch;
     }
 
-    public User(String studentUsername, String studentPassword) {
-        this.studentUsername = studentUsername;
-        this.studentPassword = studentPassword;
+    public String getStaffUsername() {
+        return staffUsername;
     }
 
-    public String getStudentUsername() {
-        return studentUsername;
+    public void setStaffUsername(String staffUsername) {
+        this.staffUsername = staffUsername;
     }
 
-    public void setStudentUsername(String studentUsername) {
-        this.studentUsername = studentUsername;
+    public String getStaffName() {
+        return staffName;
     }
 
-    public String getStudentPassword() {
-        return studentPassword;
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
     }
 
-    public void setStudentPassword(String studentPassword) {
-        this.studentPassword = studentPassword;
+    public String getStaffPassword() {
+        return staffPassword;
+    }
+
+    public void setStaffPassword(String staffPassword) {
+        this.staffPassword = staffPassword;
+    }
+
+    public String getStaffPrivilege() {
+        return staffPrivilege;
+    }
+
+    public void setStaffPrivilege(String staffPrivilege) {
+        this.staffPrivilege = staffPrivilege;
+    }
+
+    public String getStaffBranch() {
+        return staffBranch;
+    }
+
+    public void setStaffBranch(String staffBranch) {
+        this.staffBranch = staffBranch;
     }
 }
