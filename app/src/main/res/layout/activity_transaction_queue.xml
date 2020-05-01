@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TransactionQueueActivity"
+    android:background="@color/pink">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="TRANSACTION QUEUE"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/Tqueue_branch_txt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="BRANCH"
+        android:textColor="#ffffff"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/Tqueue_branch_txt"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/pink"
+        android:src="@drawable/home_symbol_onred"
+        android:scaleType="fitXY"/>
+
+
+    <TextClock
+        android:textColor="#ffffff"
+        android:id="@+id/TIME"
+        android:format12Hour="hh:mm:ss a EEE MMM d"
+        android:gravity="center"
+        android:text="date"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transactionQueueRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
